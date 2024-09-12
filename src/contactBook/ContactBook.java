@@ -20,6 +20,11 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    /**
+     * Returns true if the contact book has a contact with the given phone number
+     * @param phone int
+     * @return boolean if the contact book has a contact with the given phone number
+     */
     public boolean hasPhone(int phone) {
         boolean found = false;
         for (Contact c : contacts) {
@@ -104,6 +109,12 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    /**
+     * Returns the name of the contact with the given phone number
+     * @Pre: phone != null && hasPhone(phone)
+     * @param phone int
+     * @return a string which is the name of the contact with the given number
+     */
     public String getNameByNumber(int phone) {
         String name = null;
         for (Contact c : contacts) {
