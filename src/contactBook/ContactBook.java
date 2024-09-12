@@ -22,12 +22,15 @@ public class ContactBook {
 
     public boolean hasPhone(int phone) {
         boolean found = false;
-        for (Contact c : contacts) {
-            if (c.getPhone() == phone) {
+
+        for (int i = 0; i < counter; i++) {
+            Contact contact = contacts[i];
+            if (contact.getPhone() == phone) {
                 found = true;
                 break;
             }
         }
+
         return found;
     }
 
@@ -46,8 +49,8 @@ public class ContactBook {
     //Pre: name != null && hasContact(name)
     public void deleteContact(String name) {
         int index = searchIndex(name);
-        for(int i=index; i<counter; i++)
-            contacts[i] = contacts[i+1];
+        for (int i = index; i < counter; i++)
+            contacts[i] = contacts[i + 1];
         counter--;
     }
 
@@ -75,7 +78,7 @@ public class ContactBook {
         int i = 0;
         int result = -1;
         boolean found = false;
-        while (i<counter && !found)
+        while (i < counter && !found)
             if (contacts[i].getName().equals(name))
                 found = true;
             else
@@ -85,8 +88,8 @@ public class ContactBook {
     }
 
     private void resize() {
-        Contact tmp[] = new Contact[2*contacts.length];
-        for (int i=0;i<counter; i++)
+        Contact tmp[] = new Contact[2 * contacts.length];
+        for (int i = 0; i < counter; i++)
             tmp[i] = contacts[i];
         contacts = tmp;
     }
@@ -96,7 +99,7 @@ public class ContactBook {
     }
 
     public boolean hasNext() {
-        return (currentContact >= 0 ) && (currentContact < counter);
+        return (currentContact >= 0) && (currentContact < counter);
     }
 
     //Pre: hasNext()
@@ -106,6 +109,7 @@ public class ContactBook {
 
     public String getNameByNumber(int phone) {
         String name = null;
+
         for (Contact c : contacts) {
             if (c.getPhone() == phone) {
                 name = c.getName();

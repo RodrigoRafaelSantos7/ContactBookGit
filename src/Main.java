@@ -150,9 +150,9 @@ public class Main {
 
     private static void lookupContact(Scanner in, ContactBook cBook) {
         int phone;
-        phone = in.nextInt();
+        phone = in.nextInt(); in.nextLine();
         if (cBook.hasPhone(phone)) {
-
+            System.out.println(cBook.getNameByNumber(phone));
         } else System.out.println(PHONE_NOT_FOUND);
     }
 
