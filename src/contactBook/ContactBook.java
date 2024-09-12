@@ -104,4 +104,15 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public String getNameByNumber(int phone) {
+        String name = null;
+        for (Contact c : contacts) {
+            if (c.getPhone() == phone) {
+                name = c.getName();
+                break;
+            }
+        }
+        return name;
+    }
+
 }
