@@ -14,6 +14,7 @@ public class Main {
     public static final String SET_EMAIL = "SE";
     public static final String LIST_CONTACTS = "LC";
     public static final String GIVE_NAME = "GN";
+    public static final String EQUAL_PHONE = "EP";
     public static final String QUIT = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -57,6 +58,9 @@ public class Main {
                     break;
                 case GIVE_NAME:
                     lookupContact(in, cBook);
+                    break;
+                case EQUAL_PHONE:
+                    equalPhoneNumber(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -162,9 +166,12 @@ public class Main {
         cBook.initializeIterator();
         while (cBook.hasNext() && !found) {
             Contact c = cBook.next();
-
-            System.out.println("There are contacts that share phone numbers.");
-            System.out.println("All contacts have different phone numbers");
+            if (phoneNumber == c.getPhone()) {
+                System.out.println("There are contacts that share phone numbers.");
+                found = true;
+            }
         }
+        if (!found)
+            System.out.println("All contacts have different phone numbers");
     }
 }
