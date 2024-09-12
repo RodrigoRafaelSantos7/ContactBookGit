@@ -20,6 +20,17 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    public boolean hasPhone(int phone) {
+        boolean found = false;
+        for (Contact c : contacts) {
+            if (c.getPhone() == phone) {
+                found = true;
+                break;
+            }
+        }
+        return found;
+    }
+
     public int getNumberOfContacts() {
         return counter;
     }
