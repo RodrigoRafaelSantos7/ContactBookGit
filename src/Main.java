@@ -60,7 +60,7 @@ public class Main {
                     lookupContact(in, cBook);
                     break;
                 case EQUAL_PHONE:
-                    equalPhoneNumber(in, cBook);
+                    equalPhoneNumber(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -160,18 +160,17 @@ public class Main {
         } else System.out.println(PHONE_NOT_FOUND);
     }
 
-    private static void equalPhoneNumber(Scanner in, ContactBook cBook) {
-        int phoneNumber = in.nextInt();
+    private static void equalPhoneNumber(ContactBook cBook) {
         boolean found = false;
         cBook.initializeIterator();
         while (cBook.hasNext() && !found) {
             Contact c = cBook.next();
-            if (phoneNumber == c.getPhone()) {
+            if (cBook.equalNumber(c)) {
                 System.out.println("There are contacts that share phone numbers.");
                 found = true;
             }
         }
         if (!found)
-            System.out.println("All contacts have different phone numbers");
+            System.out.println("All contacts have different phone numbers.");
     }
 }

@@ -130,4 +130,11 @@ public class ContactBook {
         return name;
     }
 
+    public boolean equalNumber(Contact contact) {
+        for (Contact c : contacts) {
+            if (c != null && !c.equals(contact) && c.getPhone() == contact.getPhone())
+                return true;
+        }
+        return false;
+    }
 }
