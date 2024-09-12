@@ -151,4 +151,16 @@ public class Main {
     private static void lookupContact(Scanner in, ContactBook cBook) {
 
     }
+
+    private static void equalPhoneNumber(Scanner in, ContactBook cBook) {
+        int phoneNumber = in.nextInt();
+        boolean found = false;
+        cBook.initializeIterator();
+        while( cBook.hasNext() && !found) {
+            Contact c = cBook.next();
+
+            System.out.println("There are contacts that share phone numbers.");
+            System.out.println("All contacts have different phone numbers");
+        }
+    }
 }
