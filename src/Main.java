@@ -147,4 +147,8 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+    private static void lookupContact(Scanner in, ContactBook cBook) {
+
+    }
 }
